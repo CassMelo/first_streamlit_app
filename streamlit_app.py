@@ -1,8 +1,8 @@
 import streamlit
 import pandas
-#New Section to display fruityvice API response
 import requests
 import snowflake.connector
+from urllib.error import URLError
 
 
 streamlit.title('My Parents New Healthy Diner')
@@ -28,6 +28,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like to have information about?','Kiwi')
 streamlit.write('The user entered', fruit_choice)
 
+#New Section to display fruityvice API response
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # streamlit.text(fruityvice_response.json()) # writes the data to the screen
 
